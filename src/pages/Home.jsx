@@ -6,8 +6,16 @@ import useLocalStorage from "../components/useLocalStorage";
 function Home() {
   const [locationName, setLocationName] = useLocalStorage("locName", "");
   const [locationObj, setLocationObj] = useLocalStorage("locObject", {});
+  const [lon, setLon] = useLocalStorage("lon", 51.505);
+  const [lat, setLat] = useLocalStorage("lat", -0.09);
+  const [weeklyForecast, setWeeklyForecast] = useLocalStorage("weekly", []);
+
   const [savedLocations, setSavedLocations] = useState([]);
   const [theme, setTheme] = useLocalStorage("theme", "light");
+  const [toggleActivities, setToggleActivities] = useLocalStorage(
+    "toggle",
+    false
+  );
 
   const apiKey = import.meta.env.VITE_APP_API_KEY;
   const apiUrl = import.meta.env.VITE_APP_API_URL;
@@ -31,11 +39,12 @@ function Home() {
     const storedCity = locationObj.city;
     if (locationName !== "" && locationName !== storedCity) {
       fetch(
-        `${apiUrl}/v1/forecast.json?key=${apiKey}&q=${locationName}&alerts=yes`,
+        `${apiUrl}/v1/forecast.json?key=${apiKey}&q=${locationName}&days=10&aqi=no&alerts=no`,
         { mode: "cors" }
       )
         .then((res) => res.json())
         .then((res) => {
+          console.log(res.forecast.forecastday);
           let location = res.location;
           let current = res.current;
           let forecast = res.forecast.forecastday[0];
@@ -74,6 +83,9 @@ function Home() {
           };
 
           setLocationObj(obj);
+          setLat(res.location.lat);
+          setLon(res.location.lon);
+          setWeeklyForecast(res.forecast.forecastday);
         })
         .catch((err) => {
           console.log(err);
@@ -113,6 +125,9 @@ function Home() {
     setSavedLocations(filteredSavedLocation);
     setLocationObj({});
   }
+  function suggest() {
+    setToggleActivities(!toggleActivities);
+  }
 
   return (
     <div className="Home">
@@ -128,6 +143,11 @@ function Home() {
         changeTheme={changeTheme}
         theme={theme}
         handleSaveLocation={handleSaveLocation}
+        lat={lat}
+        lon={lon}
+        weeklyForecast={weeklyForecast}
+        suggest={suggest}
+        toggleActivities={toggleActivities}
       />
     </div>
   );

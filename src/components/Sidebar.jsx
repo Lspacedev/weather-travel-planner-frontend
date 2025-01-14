@@ -12,7 +12,7 @@ function Sidebar({
     <div className={`Sidebar ${theme}`}>
       <div className="logo">
         <div className="loader"></div>
-        <h3>Weather Travel App</h3>
+        <h3>TravelTides</h3>
       </div>
       <div className="dashboard-saved">
         <div className="dashboard">

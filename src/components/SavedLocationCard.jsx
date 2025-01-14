@@ -2,7 +2,12 @@ import { WiSunrise } from "react-icons/wi";
 import { TbSunset2 } from "react-icons/tb";
 import { BsCloudRainHeavy } from "react-icons/bs";
 
-function SavedLocationCard({ theme, locationObj }) {
+function SavedLocationCard({
+  theme,
+  locationObj,
+  weeklyForecast,
+  toggleActivities,
+}) {
   let time = JSON.stringify(locationObj) !== "{}" ? locationObj.time : "";
   time = time && time.match(/\d{1,2}:\d{2}/)[0];
 
@@ -19,7 +24,6 @@ function SavedLocationCard({ theme, locationObj }) {
 
   let sunriseHours = Number(currentTime) - Number(pastHours);
   let sunsetHours = Number(toHours) - Number(currentTime);
-
   return (
     <div className={`saved-location-card ${theme}`}>
       {JSON.stringify(locationObj) !== "{}" ? (
@@ -41,7 +45,7 @@ function SavedLocationCard({ theme, locationObj }) {
             </div>
           </div>
           <div className="line"></div>
-          <div className="chance-of-rain">
+          {/* <div className="chance-of-rain">
             <h4>Chance of rain</h4>
             <div className="chance-of-rain-info">
               <BsCloudRainHeavy id="chance-of-rain-icon" />
@@ -72,6 +76,26 @@ function SavedLocationCard({ theme, locationObj }) {
               </div>
               <div>{sunsetHours} hours to go</div>
             </div>
+          </div> */}
+          <h4>Following days</h4>
+          <div className="weekly-forecast">
+            {weeklyForecast && weeklyForecast.length > 0 ? (
+              weeklyForecast.map((obj, i) => (
+                <div className="day-forecast" key={i}>
+                  <div className="data">
+                    {new Date(obj.date).toDateString()}
+                  </div>
+                  <div className="condition">
+                    <div className="text">{obj.day.condition.text}</div>
+                    <div className="icon">
+                      <img src={obj.day.condition.icon} />
+                    </div>
+                  </div>
+                </div>
+              ))
+            ) : (
+              <div>No forecast data</div>
+            )}
           </div>
         </div>
       ) : (

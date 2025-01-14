@@ -5,7 +5,6 @@ body,
 html {
   width: 100%;
   margin: 0;
-  background-color: gray;
 }
 
 html,
@@ -15,12 +14,10 @@ body,
   height: 100%;
 }
 .App {
-  background-color: red;
 }
 .Home {
   height: 100%;
 
-  background-color: aqua;
   display: flex;
 }
 .Sidebar {
@@ -34,7 +31,6 @@ body,
 .Main {
   flex: 8;
   height: inherit;
-  background-color: wheat;
 }
 .main-header {
   display: flex;
@@ -114,11 +110,12 @@ body,
   padding: 0px;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .saved-location-card {
   flex: 25%;
-  padding: 50px 20px;
+  padding: 50px 15px;
   background-color: white;
   /* background: linear-gradient(#9cadce, #102142); */
   display: flex;
@@ -190,7 +187,57 @@ body,
 #search-btn:hover {
   background-color: rgb(216, 216, 216);
 }
+#map {
+  width: 100%;
+  height: 100%;
+}
 
+.day-forecast {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.day-forecast .icon img {
+}
+.day-forecast .condition {
+  text-align: center;
+}
+
+.Activities {
+  flex: calc(25% - 80px);
+  padding: 50px;
+  /* background: linear-gradient(#9cadce, #102142); */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+}
+.Activities .activities-div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.Activities .activity {
+  display: flex;
+  justify-content: space-around;
+  padding: 15px;
+  border-radius: 25px;
+  box-shadow: 1px 1px 3px rgba(187, 187, 187, 0.349);
+}
+.Activities .activity .icon-div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.Activities .activity .icon-div .icon {
+  font-size: 1.8rem;
+}
+.Activities .activity .text {
+  flex: 2;
+  text-align: center;
+  font-size: 1.1rem;
+}
 /* From Uiverse.io by Shoh2008 */
 .loader {
   width: 48px;
@@ -248,4 +295,80 @@ body,
   100% {
     transform: scale(1);
   }
+}
+@media screen and (max-width: 768px) {
+  .Home {
+    flex-direction: column;
+  }
+  .weather-information {
+    flex-direction: column;
+  }
+  .alerts-menu {
+    width: 30%;
+  }
+  .Activities {
+    padding-bottom: 15px;
+  }
+
+  .Sidebar h3 {
+    margin-bottom: 25px;
+  }
+  .saved-location-card-content {
+    width: 90%;
+  }
+
+  .Sidebar {
+    padding-bottom: 5px;
+  }
+  .Main.dark .main-header {
+    border-bottom: 1px solid white;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .main-header {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .alerts-menu {
+    width: 50%;
+  }
+  .todays-highlights {
+    grid-template-columns: auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  .TodayHighlightCard {
+    padding: 0px 100px;
+  }
+  .Daily-cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .Daily-cards .card {
+    width: 90%;
+  }
+  .Hourly-cards {
+    flex-direction: column;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .HourlyHighlightCard {
+    width: 100%;
+  }
+  .search-div input {
+    width: 100%;
+  }
+  .theme-symbol-save-alert {
+    justify-content: center;
+    padding: 10px 0px;
+  }
+}
+
+@media screen and (max-width: 320px) {
 }
