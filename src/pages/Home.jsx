@@ -46,8 +46,7 @@ function Home() {
     const storedCity = locationObj.city;
     if (locationName !== "" && locationName !== storedCity) {
       fetch(
-        `${apiUrl}/v1/forecast.json?key=${apiKey}&q=${locationName}&days=10&aqi=no&alerts=no`,
-        { mode: "cors" }
+        `${apiUrl}/v1/forecast.json?key=${apiKey}&q=${locationName}&days=10&aqi=no&alerts=no`
       )
         .then((res) => res.json())
         .then((res) => {
