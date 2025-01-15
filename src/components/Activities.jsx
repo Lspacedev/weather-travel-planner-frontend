@@ -40,6 +40,35 @@ function Activities({ theme, locationObj }) {
       ],
     },
     {
+      condition: "Clear weather",
+      activities: [
+        {
+          text: "Visit a park",
+          icon: <GiParkBench className="icon" />,
+        },
+        {
+          text: "Hiking",
+          icon: <FaHiking className="icon" />,
+        },
+        {
+          text: "Swimming",
+          icon: <FaPersonSwimming className="icon" />,
+        },
+        {
+          text: "Picnic",
+          icon: <PiPicnicTableBold className="icon" />,
+        },
+        {
+          text: "Biking",
+          icon: <PiBicycleDuotone className="icon" />,
+        },
+        {
+          text: "Zoo",
+          icon: <GiElephant className="icon" />,
+        },
+      ],
+    },
+    {
       condition: "Partly cloudy",
       activities: [
         {
@@ -371,10 +400,12 @@ function Activities({ theme, locationObj }) {
       const filteredActivities = suggestions.filter((obj) =>
         obj.condition.match(locationObj.condition.text)
       );
-      setArr(filteredActivities[0].activities);
+      if (filteredActivities.length > 0) {
+        setArr(filteredActivities[0].activities);
+      }
     }
   }, [locationObj]);
-  console.log(arr);
+  console.log(arr, locationObj);
   return (
     <div className={`Activities ${theme}`}>
       <h4>

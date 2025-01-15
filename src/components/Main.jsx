@@ -31,9 +31,9 @@ function Main({
           {toggleActivities ? "Weather" : "Suggest Activities"}
         </button>
         <div className="theme-symbol-save-alert">
-          <button className="theme-btn" onClick={changeTheme}>
+          {/* <button className="theme-btn" onClick={changeTheme}>
             {theme === "light" ? "Dark" : "Light"}
-          </button>
+          </button> */}
 
           <button className="save-btn" onClick={handleSaveLocation}>
             Save Location

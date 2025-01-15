@@ -126,6 +126,10 @@ function Home() {
     setLocationObj({});
   }
   function suggest() {
+    if (JSON.stringify(locationObj) === "{}") {
+      alert("No location detected");
+      return;
+    }
     setToggleActivities(!toggleActivities);
   }
 

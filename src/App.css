@@ -31,6 +31,7 @@ body,
 .Main {
   flex: 8;
   height: inherit;
+  position: relative;
 }
 .main-header {
   display: flex;
@@ -38,6 +39,34 @@ body,
   align-items: center;
   gap: 50px;
   padding: 20px 25px;
+}
+.suggest-btn {
+  border-radius: 3px;
+  padding: 5px;
+  border: none;
+  border: 1px solid #000614;
+  color: #000614;
+  background-color: transparent;
+}
+
+.suggest-btn:hover {
+  background-color: #000614;
+  color: white;
+  cursor: pointer;
+}
+
+.save-btn {
+  border-radius: 3px;
+  padding: 5px;
+  border: none;
+  background-color: #000614;
+  color: white;
+}
+
+.save-btn:hover {
+  background-color: #252525;
+  color: white;
+  cursor: pointer;
 }
 
 .saved-btn,
@@ -110,17 +139,26 @@ body,
   padding: 0px;
   display: flex;
   flex-direction: column;
-  position: relative;
+  z-index: 1;
 }
 
 .saved-location-card {
   flex: 25%;
+  width: 25%;
   padding: 50px 15px;
-  background-color: white;
-  /* background: linear-gradient(#9cadce, #102142); */
+  /* position: absolute;
+  right: 0;
+  bottom: 0; */
+  /* background-color: white; */
+  /* background: linear-gradient(#9cadce, ); */
+  /* background: rgba(131, 149, 185, 0.281);
+  backdrop-filter: saturate(180%) blur(5px);
+  color: gray; */
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-y: auto;
+  z-index: 2;
 }
 .saved-location-card-content {
   flex: 1;
@@ -238,6 +276,173 @@ body,
   text-align: center;
   font-size: 1.1rem;
 }
+
+.Login {
+  height: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Register {
+  height: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Login .logo {
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.Login .logo .icon {
+  color: red;
+  font-size: 1.4rem;
+}
+.Login .logo div {
+  font-weight: 900;
+}
+.Register .logo {
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.Register .logo .icon {
+  color: red;
+  font-size: 1.4rem;
+}
+
+.Register .logo div {
+  font-weight: 900;
+}
+.page-container {
+  height: 70%;
+  width: 60%;
+  display: flex;
+  align-items: center;
+  border-radius: 25px;
+  box-shadow: 1px 0px 3px 1px rgba(71, 71, 71, 0.267);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: saturate(180%) blur(10px);
+}
+
+.page-container .form-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-div {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+}
+.Register .page-container {
+  height: 75%;
+}
+.form-div input {
+  width: 100%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  margin: 15px;
+  padding: 15px 15px;
+  border: 1px solid #000614;
+  border-radius: 7px;
+  font-size: 1rem;
+  outline: none;
+}
+.form-div .submit {
+  width: 100%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  margin: 15px;
+  padding: 15px 15px;
+  border: none;
+  outline: none;
+  border-radius: 7px;
+  font-size: 1rem;
+  background-color: #0b0a07;
+  color: white;
+}
+.form-div .submit:hover {
+  background-color: #0f0f0f;
+}
+.form-div .guest-submit {
+  width: 100%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  margin: 15px;
+  padding: 15px 15px;
+  border: none;
+  outline: none;
+  border-radius: 7px;
+  font-size: 1rem;
+  border: 1px solid #0b0a07;
+  color: #0b0a07;
+  background-color: transparent;
+}
+.form-div .guest-submit:hover {
+  background-color: #0f0f0f3d;
+  cursor: pointer;
+}
+.Register .err {
+  color: red;
+  font-size: 0.7rem;
+  margin: 0px;
+  padding: 0px;
+}
+.Login .err {
+  color: red;
+  font-size: 0.7rem;
+  margin: 0px;
+  padding: 0px;
+}
+.Login input:focus {
+  border: 1px solid #f0ec57;
+}
+.Register input:focus {
+  border: 1px solid #f0ec57;
+}
+.dont-have {
+  display: flex;
+  gap: 5px;
+  font-size: 0.6rem;
+}
+.dont-have .button:hover {
+  color: red;
+}
+.image-section {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-section h1 {
+  font-size: 14rem;
+}
+.image-section img {
+  width: 100%;
+  height: 100%;
+}
+.button {
+  cursor: pointer;
+}
+
+.submit {
+  cursor: pointer;
+}
+
 /* From Uiverse.io by Shoh2008 */
 .loader {
   width: 48px;
@@ -371,4 +576,37 @@ body,
 }
 
 @media screen and (max-width: 320px) {
+}
+
+@media (max-width: 1440px) {
+  .page-container {
+    scrollbar-width: none;
+  }
+
+  .page-container .form-section {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    scrollbar-width: none;
+  }
+  .page-container .form-section::-webkit-scrollbar {
+    display: none;
+  }
+
+  .form-div {
+    width: 70%;
+
+    padding: 5px;
+  }
+
+  .form-div input {
+    margin: 0px;
+    padding: 5px;
+  }
+  .form-div .submit {
+    margin: 0px;
+    padding: 5px;
+  }
 }
