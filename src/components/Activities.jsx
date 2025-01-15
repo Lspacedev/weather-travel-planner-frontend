@@ -5,6 +5,7 @@ import { PiPicnicTableBold } from "react-icons/pi";
 import { PiBicycleDuotone } from "react-icons/pi";
 import { GiElephant } from "react-icons/gi";
 import { MdRestaurant } from "react-icons/md";
+import { GiPaintBrush } from "react-icons/gi";
 import { useEffect, useState } from "react";
 
 function Activities({ theme, locationObj }) {
@@ -77,7 +78,7 @@ function Activities({ theme, locationObj }) {
         },
         {
           text: "Visit a art gallery",
-          icon: <FaHiking className="icon" />,
+          icon: <GiPaintBrush className="icon" />,
         },
         {
           text: "Go to the cinema",
@@ -102,7 +103,7 @@ function Activities({ theme, locationObj }) {
         },
         {
           text: "Visit a art gallery",
-          icon: <FaHiking className="icon" />,
+          icon: <GiPaintBrush className="icon" />,
         },
         {
           text: "Go to the cinema",
@@ -127,7 +128,7 @@ function Activities({ theme, locationObj }) {
         },
         {
           text: "Visit a art gallery",
-          icon: <FaHiking className="icon" />,
+          icon: <GiPaintBrush className="icon" />,
         },
         {
           text: "Go to the cinema",
@@ -152,7 +153,32 @@ function Activities({ theme, locationObj }) {
         },
         {
           text: "Visit a art gallery",
-          icon: <FaHiking className="icon" />,
+          icon: <GiPaintBrush className="icon" />,
+        },
+        {
+          text: "Go to the cinema",
+          icon: <FaPersonSwimming className="icon" />,
+        },
+        {
+          text: "Browse a bookstore",
+          icon: <PiPicnicTableBold className="icon" />,
+        },
+        {
+          text: "Go to a restaurant",
+          icon: <MdRestaurant className="icon" />,
+        },
+      ],
+    },
+    {
+      condition: "Patchy rain nearby",
+      activities: [
+        {
+          text: "Visit a museum",
+          icon: <GiParkBench className="icon" />,
+        },
+        {
+          text: "Visit a art gallery",
+          icon: <GiPaintBrush className="icon" />,
         },
         {
           text: "Go to the cinema",
@@ -177,7 +203,7 @@ function Activities({ theme, locationObj }) {
         },
         {
           text: "Visit a art gallery",
-          icon: <FaHiking className="icon" />,
+          icon: <GiPaintBrush className="icon" />,
         },
         {
           text: "Go to the cinema",
@@ -202,7 +228,7 @@ function Activities({ theme, locationObj }) {
         },
         {
           text: "Visit a art gallery",
-          icon: <FaHiking className="icon" />,
+          icon: <GiPaintBrush className="icon" />,
         },
         {
           text: "Go to the cinema",
@@ -227,7 +253,7 @@ function Activities({ theme, locationObj }) {
         },
         {
           text: "Visit a art gallery",
-          icon: <FaHiking className="icon" />,
+          icon: <GiPaintBrush className="icon" />,
         },
         {
           text: "Go to the cinema",
@@ -252,7 +278,7 @@ function Activities({ theme, locationObj }) {
         },
         {
           text: "Visit a art gallery",
-          icon: <FaHiking className="icon" />,
+          icon: <GiPaintBrush className="icon" />,
         },
         {
           text: "Go to the cinema",
@@ -277,7 +303,7 @@ function Activities({ theme, locationObj }) {
         },
         {
           text: "Visit a art gallery",
-          icon: <FaHiking className="icon" />,
+          icon: <GiPaintBrush className="icon" />,
         },
         {
           text: "Go to the cinema",
@@ -302,7 +328,7 @@ function Activities({ theme, locationObj }) {
         },
         {
           text: "Visit a art gallery",
-          icon: <FaHiking className="icon" />,
+          icon: <GiPaintBrush className="icon" />,
         },
         {
           text: "Go to the cinema",
@@ -327,7 +353,7 @@ function Activities({ theme, locationObj }) {
         },
         {
           text: "Visit a art gallery",
-          icon: <FaHiking className="icon" />,
+          icon: <GiPaintBrush className="icon" />,
         },
         {
           text: "Go to the cinema",
@@ -352,7 +378,7 @@ function Activities({ theme, locationObj }) {
         },
         {
           text: "Visit a art gallery",
-          icon: <FaHiking className="icon" />,
+          icon: <GiPaintBrush className="icon" />,
         },
         {
           text: "Go to the cinema",
@@ -377,7 +403,7 @@ function Activities({ theme, locationObj }) {
         },
         {
           text: "Visit a art gallery",
-          icon: <FaHiking className="icon" />,
+          icon: <GiPaintBrush className="icon" />,
         },
         {
           text: "Go to the cinema",

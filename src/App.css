@@ -251,9 +251,21 @@ nav {
   padding: 20px 25px;
   background-color: whitesmoke;
 }
+.date {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.date .icon {
+  font-size: 1.3rem;
+}
+.suggest-save {
+  display: flex;
+  gap: 15px;
+}
 .suggest-btn {
-  border-radius: 3px;
-  padding: 5px;
+  border-radius: 7px;
+  padding: 10px;
   border: none;
   border: 1px solid #000614;
   color: #000614;
@@ -267,13 +279,19 @@ nav {
 }
 
 .save-btn {
-  border-radius: 3px;
-  padding: 5px;
-  border: none;
+  border-radius: 7px;
+  padding: 10px;
+  border: 1px solid transparent;
   background-color: #000614;
   color: white;
 }
 
+.save-btn:hover {
+  border: 1px solid #000614;
+  background-color: transparent;
+  color: #000614;
+  cursor: pointer;
+}
 .dashboard:hover {
   cursor: pointer;
   background-color: #0f0f0f;
@@ -386,7 +404,7 @@ nav {
   box-sizing: border-box;
 }
 .search-div input[type="search"]:focus {
-  border: 2px solid rgb(247, 119, 119);
+  border: 2px solid #0f0f0f;
   outline: none;
 }
 #search-icon-div {
@@ -683,7 +701,7 @@ nav {
   border-radius: 5px;
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(3px);
-  background-color: rgba(240, 240, 240, 0.7);
+  background-color: rgba(255, 255, 255, 0.76);
 }
 .Modal ul {
   margin: 0 auto 0 auto;

@@ -6,6 +6,7 @@ import { IoNotificationsOutline } from "react-icons/io5";
 import { CgClose } from "react-icons/cg";
 import { TiDelete } from "react-icons/ti";
 import { PiUserCircleThin } from "react-icons/pi";
+import { CiCalendarDate } from "react-icons/ci";
 
 function Main({
   locationObj,
@@ -87,17 +88,15 @@ function Main({
       )}
       <div className="main-header">
         <div className="date">
-          {dateText === "Invalid Date" ? "No date data" : dateText}
+          <CiCalendarDate className="icon" />
+          <div>{dateText === "Invalid Date" ? "No date data" : dateText}</div>
         </div>
         <SearchLocation changeLocation={changeLocation} />
-        <button className="suggest-btn" onClick={suggest}>
-          {toggleActivities ? "Weather" : "Activities"}
-        </button>
-        <div className="theme-symbol-save-alert">
-          {/* <button className="theme-btn" onClick={changeTheme}>
-            {theme === "light" ? "Dark" : "Light"}
-          </button> */}
-
+        <div></div>
+        <div className="suggest-save">
+          <button className="suggest-btn" onClick={suggest}>
+            {toggleActivities ? "Weather" : "Activities"}
+          </button>
           <button className="save-btn" onClick={handleSaveLocation}>
             Save Location
           </button>
