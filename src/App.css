@@ -282,12 +282,14 @@ body,
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: rgb(248, 245, 245);
 }
 .Register {
   height: inherit;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: rgb(248, 245, 245);
 }
 .Login .logo {
   font-weight: 500;
@@ -299,10 +301,11 @@ body,
 
 .Login .logo .icon {
   color: red;
-  font-size: 1.4rem;
+  font-size: 4rem;
 }
 .Login .logo div {
   font-weight: 900;
+  font-size: 1.4rem;
 }
 .Register .logo {
   font-weight: 500;
@@ -313,22 +316,22 @@ body,
 }
 .Register .logo .icon {
   color: red;
-  font-size: 1.4rem;
+  font-size: 4.5rem;
 }
 
 .Register .logo div {
   font-weight: 900;
+  font-size: 1.4rem;
 }
 .page-container {
-  height: 70%;
-  width: 60%;
+  height: 95%;
+  width: 95%;
   display: flex;
   align-items: center;
-  border-radius: 25px;
   box-shadow: 1px 0px 3px 1px rgba(71, 71, 71, 0.267);
-  border-radius: 15px;
-  background: rgba(255, 255, 255, 0.25);
+  background-color: white;
   backdrop-filter: saturate(180%) blur(10px);
+  border-radius: 15px;
 }
 
 .page-container .form-section {
@@ -346,21 +349,20 @@ body,
   padding: 5px;
 }
 .Register .page-container {
-  height: 75%;
 }
 .form-div input {
-  width: 100%;
+  width: 90%;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
-  margin: 15px;
-  padding: 15px 15px;
+  margin: 5px;
+  padding: 10px 0px;
   border: 1px solid #000614;
   border-radius: 7px;
   font-size: 1rem;
   outline: none;
 }
 .form-div .submit {
-  width: 100%;
+  width: 90%;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   margin: 15px;
@@ -406,10 +408,10 @@ body,
   padding: 0px;
 }
 .Login input:focus {
-  border: 1px solid #f0ec57;
+  border: 1px solid red;
 }
 .Register input:focus {
-  border: 1px solid #f0ec57;
+  border: 1px solid red;
 }
 .dont-have {
   display: flex;
@@ -432,8 +434,9 @@ body,
   font-size: 14rem;
 }
 .image-section img {
-  width: 100%;
-  height: 100%;
+  width: 98%;
+  height: 98%;
+  border-radius: 15px;
 }
 .button {
   cursor: pointer;
@@ -580,8 +583,11 @@ body,
 
 @media (max-width: 1440px) {
   .page-container {
+    height: 80%;
+    width: 98%;
     scrollbar-width: none;
   }
+  /* }
 
   .page-container .form-section {
     height: 100%;
@@ -608,5 +614,5 @@ body,
   .form-div .submit {
     margin: 0px;
     padding: 5px;
-  }
+  } */
 }
