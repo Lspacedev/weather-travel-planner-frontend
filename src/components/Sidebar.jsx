@@ -28,8 +28,8 @@ function Sidebar({
             {savedLocations.length > 0 ? (
               <ul>
                 {savedLocations.map((location, i) => (
-                  <li key={i} onClick={() => changeLocation(location)}>
-                    <p>{location}</p>
+                  <li key={i} onClick={() => changeLocation(location.city)}>
+                    <p>{location.city}</p>
                     <span
                       className="location-delete"
                       onClick={() => handleDeleteSavedLocation(location)}

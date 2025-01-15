@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 import { TiLocation } from "react-icons/ti";
 
 function Login() {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -11,27 +11,30 @@ function Login() {
 
   async function login() {
     try {
-      if (username === "" || password === "") {
+      if (email === "" || password === "") {
         alert("Fields cannot be empty");
         return;
       }
       setLoading(true);
 
-      let userData = { username: username, password: password };
+      let userData = { email: email, password: password };
 
-      const res = await fetch(`${import.meta.env.VITE_PROD_URL}/log-in`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(userData),
-      });
+      const res = await fetch(
+        `${import.meta.env.VITE_PROD_URL}/api/auth/login`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(userData),
+        }
+      );
       const data = await res.json();
 
       if (res.ok) {
-        alert(data.message);
+        alert("Success");
         localStorage.setItem("token", data.token);
         navigation("/home");
       } else {
-        setErrors(data.errors);
+        alert(data.message);
       }
       setLoading(false);
     } catch (err) {
@@ -50,18 +53,16 @@ function Login() {
           </div>
           <p>Log in to your account.</p>
           <div className="form-div">
-            <label htmlFor="username">Username</label>
-            <br />
+            <label htmlFor="email">Email</label>
 
             <input
-              type="username"
-              id="username"
-              name="username"
-              onChange={(e) => setUsername(e.target.value)}
+              type="email"
+              id="email"
+              name="email"
+              onChange={(e) => setEmail(e.target.value)}
             />
             <br />
             <label htmlFor="password">Password: </label>
-            <br />
 
             <input
               type="password"

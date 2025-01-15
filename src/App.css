@@ -345,11 +345,11 @@ body,
   width: 70%;
   display: flex;
   flex-direction: column;
-  align-items: center;
   padding: 5px;
 }
 .Register .page-container {
 }
+
 .form-div input {
   width: 90%;
   box-sizing: border-box;
@@ -361,12 +361,15 @@ body,
   font-size: 1rem;
   outline: none;
 }
+.form-div label {
+  padding: 0px 10px;
+}
 .form-div .submit {
   width: 90%;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
-  margin: 15px;
-  padding: 15px 15px;
+  margin: 15px 0px;
+  padding: 15px 0px;
   border: none;
   outline: none;
   border-radius: 7px;
@@ -415,8 +418,9 @@ body,
 }
 .dont-have {
   display: flex;
+  justify-content: center;
   gap: 5px;
-  font-size: 0.6rem;
+  font-size: 1rem;
 }
 .dont-have .button:hover {
   color: red;

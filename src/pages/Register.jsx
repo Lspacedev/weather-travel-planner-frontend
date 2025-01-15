@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import { TiLocation } from "react-icons/ti";
 function Register() {
-  const [username, setUsername] = useState("");
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -12,33 +12,31 @@ function Register() {
 
   async function register() {
     try {
-      if (
-        username === "" ||
-        email === "" ||
-        password === "" ||
-        confirmPassword === ""
-      ) {
+      if (name === "" || email === "" || password === "") {
         alert("Fields cannot be empty");
         return;
       }
       setLoading(true);
-      const res = await fetch(`${import.meta.env.VITE_PROD_URL}/sign-up`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username: username,
-          email: email,
-          password: password,
-        }),
-      });
+      const res = await fetch(
+        `${import.meta.env.VITE_PROD_URL}/api/auth/register`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            password: password,
+          }),
+        }
+      );
       const data = await res.json();
       if (res.ok) {
-        alert(data.message);
-        navigation("/");
+        alert("Success");
+        navigation("/login");
       } else {
-        setErrors(data.errors);
+        alert(data.message);
       }
       setLoading(false);
     } catch (error) {
@@ -56,12 +54,7 @@ function Register() {
             <div>TravelTides</div>
           </div>
           <p>Register an account.</p>
-          <div className="dont-have">
-            <div>Already an account?</div>
-            <div className="button" onClick={() => navigation("/login")}>
-              Login
-            </div>
-          </div>
+
           {errors &&
             errors.length > 0 &&
             errors.map((err, i) => (
@@ -70,18 +63,16 @@ function Register() {
               </span>
             ))}
           <div className="form-div">
-            <label htmlFor="username">Username</label>
-            <br />
+            <label htmlFor="name">Name</label>
             <input
-              type="username"
-              id="username"
-              name="username"
-              onChange={(e) => setUsername(e.target.value)}
+              type="name"
+              id="name"
+              name="name"
+              onChange={(e) => setName(e.target.value)}
             />
             <br />
 
             <label htmlFor="email">Email</label>
-            <br />
 
             <input
               type="email"
@@ -92,7 +83,6 @@ function Register() {
             <br />
 
             <label htmlFor="password">Password:</label>
-            <br />
 
             <input
               type="password"
@@ -108,6 +98,12 @@ function Register() {
             >
               {loading ? "Loading..." : "Submit"}
             </button>
+            <div className="dont-have">
+              <div>Already an account?</div>
+              <div className="button" onClick={() => navigation("/login")}>
+                Login
+              </div>
+            </div>
           </div>
         </div>
         <div className="image-section">

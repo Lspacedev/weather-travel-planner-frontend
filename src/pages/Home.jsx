@@ -19,6 +19,8 @@ function Home() {
 
   const apiKey = import.meta.env.VITE_APP_API_KEY;
   const apiUrl = import.meta.env.VITE_APP_API_URL;
+  const token = localStorage.getItem("token");
+  useEffect(() => {}, []);
   useEffect(() => {
     function success(position) {
       let lat = position.coords.latitude;
@@ -93,27 +95,77 @@ function Home() {
         });
     }
   }, [locationName]);
+
+  async function getFavourites() {
+    try {
+      setLoading(true);
+
+      const res = await fetch(
+        `${import.meta.env.VITE_PROD_URL}/api/favorites`,
+        {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+      const data = await res.json();
+
+      if (res.ok) {
+        alert("Success");
+        setSavedLocations(data);
+      } else {
+        alert("An error occured");
+      }
+      setLoading(false);
+    } catch (err) {
+      setLoading(false);
+    }
+  }
+
   function changeLocation(name) {
     setLocationName(name);
   }
+
   function changeTheme() {
     let toggle = theme === "light" ? "dark" : "light";
     setTheme(toggle);
   }
 
-  function handleSaveLocation() {
+  async function handleSaveLocation() {
     const findLocation = savedLocations.filter(
       (location) => location === locationName
     );
     if (locationName === "") {
       return;
     }
-    if (findLocation.length === 0) {
-      let arr = [...savedLocations];
-      arr.push(locationName);
-      alert("Location has been saved!");
+    if (findLocation.length !== 0) {
+      return;
+    }
 
-      setSavedLocations(arr);
+    try {
+      setLoading(true);
+
+      const res = await fetch(
+        `${import.meta.env.VITE_PROD_URL}/api/favorites`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            city: locationName,
+            weatherData: locationObj,
+          }),
+        }
+      );
+      const data = await res.json();
+
+      if (res.ok) {
+        alert("Success");
+        setSavedLocations(data);
+      } else {
+        alert("An error occured");
+      }
+      setLoading(false);
+    } catch (err) {
+      setLoading(false);
     }
   }
   function handleDeleteSavedLocation(name) {
