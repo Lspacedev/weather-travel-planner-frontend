@@ -35,7 +35,7 @@ function SearchLocation({ changeLocation }) {
           handleSubmit();
         }}
       >
-        search
+        Search
       </button>
     </div>
   );

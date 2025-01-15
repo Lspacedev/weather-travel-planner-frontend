@@ -19,19 +19,18 @@ function Login() {
 
       let userData = { email: email, password: password };
 
-      const res = await fetch(
-        `${import.meta.env.VITE_PROD_URL}/api/auth/login`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(userData),
-        }
-      );
+      const res = await fetch(`${process.env.PROD_URL}/api/auth/login`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(userData),
+      });
       const data = await res.json();
-
+      console.log({ name: data.name });
       if (res.ok) {
         alert("Success");
         localStorage.setItem("token", data.token);
+        localStorage.setItem("name", data.name);
+        localStorage.setItem("email", data.email);
         navigation("/home");
       } else {
         alert(data.message);
@@ -46,7 +45,7 @@ function Login() {
     <div className="Login">
       <div className="page-container">
         <div className="form-section">
-          <div className="logo">
+          <div className="logo" onClick={() => navigation("/")}>
             <TiLocation className="icon" />
 
             <div>TravelTides</div>

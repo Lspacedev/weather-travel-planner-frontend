@@ -24,6 +24,7 @@ function SavedLocationCard({
 
   let sunriseHours = Number(currentTime) - Number(pastHours);
   let sunsetHours = Number(toHours) - Number(currentTime);
+  console.log({ locationObj });
   return (
     <div className={`saved-location-card ${theme}`}>
       {JSON.stringify(locationObj) !== "{}" ? (
@@ -37,11 +38,21 @@ function SavedLocationCard({
             </div>
             <div className="time">{time}</div>
           </div>
-          <div className="temp-condition-text">
-            <img src={`${locationObj.condition.icon}`} />
-            <div className="temp-text">
-              <div className="temp">°C</div>
-              <div className="condition-text">{locationObj.condition.text}</div>
+          <div className="temp-other">
+            <div className="temp-condition-text">
+              <img src={`${locationObj.condition.icon}`} />
+              <div className="temp-text">
+                <div className="temp">{locationObj.temp_c}°C</div>
+                <div className="condition-text">
+                  {locationObj.condition.text}
+                </div>
+              </div>
+            </div>
+            <div className="other">
+              <div className="heading">Humidity</div>
+              <div className="item">{locationObj.humidity}</div>
+              <div className="heading">Wind Speed</div>
+              <div className="item">{locationObj.wind_speed}</div>
             </div>
           </div>
           <div className="line"></div>

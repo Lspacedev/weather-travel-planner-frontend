@@ -9,6 +9,7 @@ function Home() {
   const [lon, setLon] = useLocalStorage("lon", 51.505);
   const [lat, setLat] = useLocalStorage("lat", -0.09);
   const [weeklyForecast, setWeeklyForecast] = useLocalStorage("weekly", []);
+  const [loading, setLoading] = useState(false);
 
   const [savedLocations, setSavedLocations] = useState([]);
   const [theme, setTheme] = useLocalStorage("theme", "light");
@@ -16,11 +17,15 @@ function Home() {
     "toggle",
     false
   );
+  const [openModal, setOpenModal] = useState(false);
+  const [openProfileModal, setOpenProfileModal] = useState(false);
 
-  const apiKey = import.meta.env.VITE_APP_API_KEY;
-  const apiUrl = import.meta.env.VITE_APP_API_URL;
+  const apiKey = process.env.API_KEY;
+  const apiUrl = process.env.API_URL;
   const token = localStorage.getItem("token");
-  useEffect(() => {}, []);
+  useEffect(() => {
+    getFavourites();
+  }, []);
   useEffect(() => {
     function success(position) {
       let lat = position.coords.latitude;
@@ -100,17 +105,16 @@ function Home() {
     try {
       setLoading(true);
 
-      const res = await fetch(
-        `${import.meta.env.VITE_PROD_URL}/api/favorites`,
-        {
-          method: "GET",
-          headers: { "Content-Type": "application/json" },
-        }
-      );
+      const res = await fetch(`${process.env.PROD_URL}/api/favorites`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
       const data = await res.json();
 
       if (res.ok) {
-        alert("Success");
         setSavedLocations(data);
       } else {
         alert("An error occured");
@@ -135,6 +139,7 @@ function Home() {
       (location) => location === locationName
     );
     if (locationName === "") {
+      alert("No location detected");
       return;
     }
     if (findLocation.length !== 0) {
@@ -144,17 +149,17 @@ function Home() {
     try {
       setLoading(true);
 
-      const res = await fetch(
-        `${import.meta.env.VITE_PROD_URL}/api/favorites`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            city: locationName,
-            weatherData: locationObj,
-          }),
-        }
-      );
+      const res = await fetch(`${process.env.PROD_URL}/api/favorites`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          city: locationName,
+          weatherData: locationObj,
+        }),
+      });
       const data = await res.json();
 
       if (res.ok) {
@@ -168,14 +173,29 @@ function Home() {
       setLoading(false);
     }
   }
-  function handleDeleteSavedLocation(name) {
-    const filteredSavedLocation = savedLocations.filter(
-      (location) => location !== name
-    );
-    //alert("Location has been deleted!");
+  async function handleDeleteSavedLocation(id) {
+    try {
+      setLoading(true);
 
-    setSavedLocations(filteredSavedLocation);
-    setLocationObj({});
+      const res = await fetch(`${process.env.PROD_URL}/api/favorites/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const data = await res.json();
+
+      if (res.ok) {
+        alert("Success");
+        setSavedLocations(data);
+      } else {
+        alert("An error occured");
+      }
+      setLoading(false);
+    } catch (err) {
+      setLoading(false);
+    }
   }
   function suggest() {
     if (JSON.stringify(locationObj) === "{}") {
@@ -184,7 +204,7 @@ function Home() {
     }
     setToggleActivities(!toggleActivities);
   }
-
+  console.log({ savedLocations });
   return (
     <div className="Home">
       <Sidebar
@@ -192,6 +212,8 @@ function Home() {
         savedLocations={savedLocations}
         changeLocation={changeLocation}
         handleDeleteSavedLocation={handleDeleteSavedLocation}
+        handleOpenModal={() => setOpenModal(true)}
+        handleOpenProfileModal={() => setOpenProfileModal(true)}
       />
       <Main
         locationObj={locationObj || {}}
@@ -204,6 +226,12 @@ function Home() {
         weeklyForecast={weeklyForecast}
         suggest={suggest}
         toggleActivities={toggleActivities}
+        openModal={openModal}
+        openProfileModal={openProfileModal}
+        closeModal={() => setOpenModal(false)}
+        closeProfileModal={() => setOpenProfileModal(false)}
+        savedLocations={savedLocations}
+        handleDeleteSavedLocation={handleDeleteSavedLocation}
       />
     </div>
   );

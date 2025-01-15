@@ -1,13 +1,24 @@
 import { RiDashboardLine } from "react-icons/ri";
 import { FaHistory } from "react-icons/fa";
 import { TiDelete } from "react-icons/ti";
+import { useNavigate } from "react-router";
 
 function Sidebar({
   theme,
   savedLocations,
   changeLocation,
   handleDeleteSavedLocation,
+  handleOpenModal,
+  handleOpenProfileModal,
 }) {
+  const navigation = useNavigate();
+
+  function logout() {
+    localStorage.removeItem("token");
+    localStorage.removeItem("name");
+    localStorage.removeItem("email");
+    navigation("/");
+  }
   return (
     <div className={`Sidebar ${theme}`}>
       <div className="logo">
@@ -16,34 +27,22 @@ function Sidebar({
       </div>
       <div className="dashboard-saved">
         <div className="dashboard">
-          <RiDashboardLine />
-          Dashboard
+          <RiDashboardLine className="icon" />
+          <div className="text">Dashboard</div>
         </div>
-        <div className="saved">
-          <div className="saved-btn">
-            <FaHistory />
-            Saved Locations
-          </div>
-          <div className="sub-menu">
-            {savedLocations.length > 0 ? (
-              <ul>
-                {savedLocations.map((location, i) => (
-                  <li key={i} onClick={() => changeLocation(location.city)}>
-                    <p>{location.city}</p>
-                    <span
-                      className="location-delete"
-                      onClick={() => handleDeleteSavedLocation(location)}
-                    >
-                      <TiDelete />
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p>No saved locations.</p>
-            )}
-          </div>
+
+        <div className="saved" onClick={handleOpenModal}>
+          <FaHistory className="icon" />
+          <div className="text">Favourites</div>
         </div>
+        <div className="profile-link" onClick={handleOpenProfileModal}>
+          <FaHistory className="icon" />
+          <div className="text">Profile</div>
+        </div>
+      </div>
+      <div className="logout" onClick={logout}>
+        <RiDashboardLine className="icon" />
+        <div className="text">Logout</div>
       </div>
     </div>
   );

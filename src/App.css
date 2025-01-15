@@ -15,6 +15,143 @@ body,
 }
 .App {
 }
+.Landing {
+  height: inherit;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.landing-content {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgb(248, 245, 245);
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.landing-page-container {
+  height: 80%;
+  width: 70%;
+  display: flex;
+  align-items: center;
+  box-shadow: 1px 0px 3px 1px rgba(71, 71, 71, 0.267);
+  background-image: url("/images/pexels-jess-vide-4321080.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  backdrop-filter: saturate(180%) blur(10px);
+  border-radius: 15px;
+}
+.landing-info {
+  flex: 1;
+  height: 100%;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  background-color: rgba(34, 17, 0, 0.5);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.landing-title {
+  font-size: 3rem;
+  margin: 0px 20px;
+  font-weight: bold;
+
+  color: white;
+}
+.landing-subtitle {
+  font-size: 1.5rem;
+
+  color: whitesmoke;
+}
+.empty {
+  flex: 1;
+}
+nav {
+  display: flex;
+  justify-content: space-around;
+
+  background-color: rgb(248, 245, 245);
+}
+
+.logo-land {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 15px;
+  display: flex;
+  align-items: center;
+}
+.logo-land .icon {
+  color: red;
+  font-size: 4rem;
+}
+.login-register {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.login-btn {
+  font-size: 1.2rem;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border: 1px solid #0f0f0f;
+  padding: 10px 25px;
+  border-radius: 8px;
+}
+.login-btn:hover {
+  background-color: #0f0f0f;
+  color: white;
+}
+.register-btn {
+  font-weight: bold;
+  border-radius: 7px;
+
+  margin-right: 10px;
+  outline: none;
+  padding: 15px 25px;
+  cursor: pointer;
+  background-color: #0f0f0f;
+  color: white;
+  border: 1px solid transparent;
+}
+.register-btn:hover {
+  border: 1px solid #0f0f0f;
+  background-color: transparent;
+  color: #0f0f0f;
+}
+.register-btn2 {
+  font-weight: bold;
+  margin: 20px;
+  padding: 25px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background-color: #0f0f0f;
+  color: white;
+}
+.register-btn2:hover {
+  border: 1px solid #0f0f0f;
+  background-color: transparent;
+  color: #0f0f0f;
+  cursor: pointer;
+}
+
+.register-btn:hover {
+}
+
+.register-btn2:hover {
+}
+
 .Home {
   height: 100%;
 
@@ -28,10 +165,83 @@ body,
 .logo {
   text-align: center;
 }
+.Sidebar h3 {
+  font-size: 1.2rem;
+  margin-top: 23px;
+
+  margin-bottom: 50px;
+}
+.Sidebar .logout {
+  width: 30%;
+  margin: 30px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 1.1rem;
+  padding: 15px 0px;
+}
+.Sidebar .logout .text {
+  flex: 2;
+}
+.Sidebar .logout:hover {
+  cursor: pointer;
+  background-color: #0f0f0f;
+  color: white;
+  border-radius: 40px;
+  padding: 15px;
+}
+.dashboard-saved {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.dashboard-saved .dashboard {
+  width: fit-content;
+  margin: 0px auto;
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+  padding: 15px 0px;
+}
+.dashboard-saved .dashboard .text {
+  flex: 2;
+}
+.dashboard-saved .saved {
+  width: fit-content;
+  margin: 0px auto;
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+  padding: 15px 0px;
+}
+.dashboard-saved .saved .text {
+  flex: 2;
+}
+
+.dashboard-saved .save-btn {
+  width: fit-content;
+  margin: 0px auto;
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+  padding: 15px 0px;
+}
+.dashboard-saved .saved-btn .text {
+  flex: 2;
+}
+.dashboard-saved .profile-link {
+  width: 30%;
+  margin: 0px auto;
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+  padding: 15px 0px;
+}
 .Main {
   flex: 8;
   height: inherit;
-  position: relative;
 }
 .main-header {
   display: flex;
@@ -39,6 +249,7 @@ body,
   align-items: center;
   gap: 50px;
   padding: 20px 25px;
+  background-color: whitesmoke;
 }
 .suggest-btn {
   border-radius: 3px;
@@ -63,74 +274,33 @@ body,
   color: white;
 }
 
-.save-btn:hover {
-  background-color: #252525;
-  color: white;
-  cursor: pointer;
-}
-
-.saved-btn,
-.dashboard {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .dashboard:hover {
   cursor: pointer;
-  background-color: whitesmoke;
-  color: #2757b6;
+  background-color: #0f0f0f;
+  color: white;
   border-radius: 40px;
+  padding: 15px;
 }
-.saved-btn:hover {
+.profile-link:hover {
   cursor: pointer;
-  background-color: whitesmoke;
-  color: #2757b6;
+  background-color: #0f0f0f;
+  color: white;
   border-radius: 40px;
+  padding: 15px;
 }
-.sub-menu {
-  display: none;
-  padding: 15px 0px;
-}
-.sub-menu ul {
-  padding: 0px 25px;
-}
-.sub-menu li {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: space-around;
-  gap: 15px;
-  padding: 5px 10px;
-}
-
-.sub-menu p {
-  color: #000614;
-  width: 100%;
-}
-.sub-menu li:hover {
-  background-color: whitesmoke;
-  border-radius: 20px;
-}
-.sub-menu li p:hover {
-  color: #9cadce;
-
+.dashboard-saved .saved:hover {
   cursor: pointer;
-}
-
-.location-delete:hover {
-  color: red;
-  cursor: pointer;
-}
-
-.saved:hover .sub-menu {
-  display: block;
+  background-color: #0f0f0f;
+  color: white;
+  border-radius: 40px;
+  padding: 15px;
 }
 
 .weather-information {
   height: calc(100% - 82px);
   display: flex;
   padding: 0px;
+  position: relative;
 }
 
 .LocationMap {
@@ -146,14 +316,15 @@ body,
   flex: 25%;
   width: 25%;
   padding: 50px 15px;
-  /* position: absolute;
+  position: absolute;
   right: 0;
-  bottom: 0; */
+  bottom: 0;
+  top: 0;
   /* background-color: white; */
-  /* background: linear-gradient(#9cadce, ); */
-  /* background: rgba(131, 149, 185, 0.281);
-  backdrop-filter: saturate(180%) blur(5px);
-  color: gray; */
+  /* background: linear-gradient(#9cadce); */
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.5);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -183,9 +354,18 @@ body,
 .temp {
   font-size: 1.7rem;
   font-weight: 500;
-  color: rgb(27, 27, 27);
+  color: rgba(73, 73, 78, 0.801);
 }
-
+.temp-other {
+  display: flex;
+  justify-content: space-between;
+}
+.temp-other .heading {
+  font-weight: 500;
+}
+.temp-other .item {
+  margin: 0px 0px 30px 0px;
+}
 .search-div {
   flex: 5;
   max-width: 500px;
@@ -194,14 +374,20 @@ body,
 
   display: flex;
   border-radius: 40px;
-  border: 1px solid gray;
+  /* border: 1px solid rgb(153, 153, 153); */
   background-color: white;
+  box-shadow: 1px 1px 3px rgb(153, 153, 153);
 }
 
 .search-div input[type="search"] {
   flex: 6;
-  margin: 0px;
+  margin: 0px 2px;
   border: none;
+  box-sizing: border-box;
+}
+.search-div input[type="search"]:focus {
+  border: 2px solid rgb(247, 119, 119);
+  outline: none;
 }
 #search-icon-div {
   flex: 1;
@@ -221,9 +407,12 @@ body,
   margin: 0px;
   border-radius: 0px 40px 40px 0px;
   border: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  background-color: #f3f5f8;
 }
 #search-btn:hover {
-  background-color: rgb(216, 216, 216);
+  background-color: rgb(224, 224, 224);
 }
 #map {
   width: 100%;
@@ -242,7 +431,7 @@ body,
 }
 
 .Activities {
-  flex: calc(25% - 80px);
+  flex: calc(25% - 65px);
   padding: 50px;
   /* background: linear-gradient(#9cadce, #102142); */
   display: flex;
@@ -297,6 +486,7 @@ body,
   flex-direction: column;
   align-items: center;
   gap: 10px;
+  cursor: pointer;
 }
 
 .Login .logo .icon {
@@ -313,6 +503,7 @@ body,
   flex-direction: column;
   align-items: center;
   gap: 10px;
+  cursor: pointer;
 }
 .Register .logo .icon {
   color: red;
@@ -355,7 +546,7 @@ body,
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   margin: 5px;
-  padding: 10px 0px;
+  padding: 10px;
   border: 1px solid #000614;
   border-radius: 7px;
   font-size: 1rem;
@@ -450,6 +641,114 @@ body,
   cursor: pointer;
 }
 
+.Modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(68, 68, 71, 0.6);
+  z-index: 3;
+  cursor: pointer;
+  padding: 0px;
+  margin: 0px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-close {
+  font-size: 2rem;
+  color: #e6e8e6;
+  cursor: pointer;
+}
+
+.savedLocations {
+  margin: 0 auto 0 auto;
+  padding: 50px;
+  width: 40%;
+  height: 50%;
+  border-radius: 5px;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(3px);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.profile {
+  margin: 0 auto 0 auto;
+  padding: 50px;
+  width: 40%;
+  height: 50%;
+  border-radius: 5px;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(3px);
+  background-color: rgba(196, 196, 196, 0.5);
+}
+.Modal ul {
+  margin: 0 auto 0 auto;
+  padding: 50px;
+  width: 90%;
+  height: 80%;
+  border-radius: 50px;
+  scrollbar-width: none;
+}
+
+.Modal ul li {
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(3px);
+  background-color: rgba(0, 0, 0, 0.082);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: whitesmoke;
+  padding: 0px 15px;
+}
+.Modal ul li .location-delete {
+  font-size: 1.5rem;
+  display: flex;
+}
+.Modal ul li .location-delete:hover {
+  color: red;
+  cursor: pointer;
+}
+.fav-nav {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  color: whitesmoke;
+}
+.Modal .profile {
+  color: rgb(24, 24, 24);
+}
+.profile-nav {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  color: rgb(24, 24, 24);
+}
+
+.profile .form-close {
+  font-size: 2rem;
+  color: rgb(24, 24, 24);
+  cursor: pointer;
+}
+.profile-icon {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0px;
+}
+.profile-icon .icon {
+  font-size: 6rem;
+}
+.profile-heading {
+  font-weight: 400;
+  font-size: 1.2rem;
+  text-align: center;
+}
+.profile-text {
+  text-align: center;
+}
 /* From Uiverse.io by Shoh2008 */
 .loader {
   width: 48px;

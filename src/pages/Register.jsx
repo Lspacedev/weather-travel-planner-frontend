@@ -17,20 +17,17 @@ function Register() {
         return;
       }
       setLoading(true);
-      const res = await fetch(
-        `${import.meta.env.VITE_PROD_URL}/api/auth/register`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            name: name,
-            email: email,
-            password: password,
-          }),
-        }
-      );
+      const res = await fetch(`${process.env.PROD_URL}/api/auth/register`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          password: password,
+        }),
+      });
       const data = await res.json();
       if (res.ok) {
         alert("Success");
@@ -49,7 +46,7 @@ function Register() {
     <div className="Register">
       <div className="page-container">
         <div className="form-section">
-          <div className="logo">
+          <div className="logo" onClick={() => navigation("/")}>
             <TiLocation className="icon" />
             <div>TravelTides</div>
           </div>
@@ -99,7 +96,7 @@ function Register() {
               {loading ? "Loading..." : "Submit"}
             </button>
             <div className="dont-have">
-              <div>Already an account?</div>
+              <div>Already have an account?</div>
               <div className="button" onClick={() => navigation("/login")}>
                 Login
               </div>
