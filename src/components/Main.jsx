@@ -31,6 +31,7 @@ function Main({
   dateText = dateText.toDateString();
   const name = localStorage.getItem("name");
   const email = localStorage.getItem("email");
+  console.log({ savedLocations });
   return (
     <div className={`Main ${theme}`}>
       {openModal && savedLocations && (

@@ -2,6 +2,7 @@ import { RiDashboardLine } from "react-icons/ri";
 import { FaHistory } from "react-icons/fa";
 import { TiDelete } from "react-icons/ti";
 import { useNavigate } from "react-router";
+import { FaRegUser } from "react-icons/fa6";
 
 function Sidebar({
   theme,
@@ -36,7 +37,7 @@ function Sidebar({
           <div className="text">Favourites</div>
         </div>
         <div className="profile-link" onClick={handleOpenProfileModal}>
-          <FaHistory className="icon" />
+          <FaRegUser className="icon" />
           <div className="text">Profile</div>
         </div>
       </div>

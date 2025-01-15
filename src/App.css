@@ -647,7 +647,7 @@ nav {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(68, 68, 71, 0.6);
+  background-color: rgba(46, 46, 48, 0.7);
   z-index: 3;
   cursor: pointer;
   padding: 0px;
@@ -683,7 +683,7 @@ nav {
   border-radius: 5px;
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(3px);
-  background-color: rgba(196, 196, 196, 0.5);
+  background-color: rgba(240, 240, 240, 0.7);
 }
 .Modal ul {
   margin: 0 auto 0 auto;

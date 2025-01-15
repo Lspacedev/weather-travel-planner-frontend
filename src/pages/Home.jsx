@@ -38,9 +38,9 @@ function Home() {
       console.log(error);
     }
 
-    // if (locationName === "") {
-    //   navigator.geolocation.getCurrentPosition(success, error);
-    // }
+    if (locationName === "") {
+      navigator.geolocation.getCurrentPosition(success, error);
+    }
   }, []);
   useEffect(() => {
     const storedCity = locationObj.city;
@@ -135,13 +135,15 @@ function Home() {
 
   async function handleSaveLocation() {
     const findLocation = savedLocations.filter(
-      (location) => location === locationName
+      (location) => location.city === locationName
     );
     if (locationName === "") {
       alert("No location detected");
       return;
     }
     if (findLocation.length !== 0) {
+      alert("Location already saved");
+
       return;
     }
 
